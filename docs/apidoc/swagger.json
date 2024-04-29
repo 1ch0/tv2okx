@@ -1,0 +1,66 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"description": "go-restful-template api doc, build time: 2024-04-29 13:31:15.29248 +0800 CST m=+0.009836459",
+		"title": "tv2okx api doc",
+		"contact": {
+			"name": "ed.",
+			"email": "neoed174@gmail.com"
+		},
+		"license": {
+			"name": "Apache License 2.0"
+		},
+		"version": "v1beta1"
+	},
+	"paths": {
+		"/webhook": {
+			"get": {
+				"consumes": [
+					"application/xml",
+					"application/json"
+				],
+				"produces": [
+					"application/json",
+					"application/xml"
+				],
+				"tags": [
+					"trendingView"
+				],
+				"summary": "handle trendingView webhook",
+				"operationId": "handleWebhook",
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/v1.EmptyResponse"
+						}
+					},
+					"400": {
+						"description": "Bad Request",
+						"schema": {
+							"$ref": "#/definitions/bcode.Bcode"
+						}
+					}
+				}
+			}
+		}
+	},
+	"definitions": {
+		"bcode.Bcode": {
+			"required": [
+				"BusinessCode",
+				"Message"
+			],
+			"properties": {
+				"BusinessCode": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"Message": {
+					"type": "string"
+				}
+			}
+		},
+		"v1.EmptyResponse": {}
+	}
+}
